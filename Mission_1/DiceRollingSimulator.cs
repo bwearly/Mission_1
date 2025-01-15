@@ -10,29 +10,29 @@ namespace DiceRollingSimulator
             System.Console.WriteLine("Welcome to the dice throwing simulator!");
             System.Console.Write("How many dice rolls would you like to simulate? ");
 
-            string userInput = Console.ReadLine();
+            string userInput = System.Console.ReadLine();
 
             if (int.TryParse(userInput, out int numberOfRolls) && numberOfRolls > 0)
             {
-                Console.WriteLine($"\nYou chose to simulate {numberOfRolls} dice rolls.");
+                System.Console.WriteLine($"\nYou chose to simulate {numberOfRolls} dice rolls.");
 
                 int[] rollResults = DiceRollingSimulator.SimulateRolls(numberOfRolls);
 
-                Console.WriteLine("\nDICE ROLLING SIMULATION RESULTS");
-                Console.WriteLine("Each \"*\" represents 1% of the total number of rolls.");
-                Console.WriteLine($"Total number of rolls = {numberOfRolls}.\n");
+                System.Console.WriteLine("\nDICE ROLLING SIMULATION RESULTS");
+                System.Console.WriteLine("Each \"*\" represents 1% of the total number of rolls.");
+                System.Console.WriteLine($"Total number of rolls = {numberOfRolls}.\n");
 
                 for (int diceSum = 2; diceSum <= 12; diceSum++)
                 {
                     int percentage = (int)Math.Round((double)rollResults[diceSum] / numberOfRolls * 100);
-                    Console.WriteLine($"{diceSum}: {new string('*', percentage)}");
+                    System.Console.WriteLine($"{diceSum}: {new string('*', percentage)}");
                 }
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a positive whole number.");
+                System.Console.WriteLine("Invalid input. Please enter a positive whole number.");
             }
-            Console.WriteLine("\nThank you for using the dice throwing simulator. Goodbye!");
+            System.Console.WriteLine("\nThank you for using the dice throwing simulator. Goodbye!");
         }
 
         public static int[] SimulateRolls(int numDiceRolls)
